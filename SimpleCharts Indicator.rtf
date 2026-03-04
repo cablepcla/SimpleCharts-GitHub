@@ -1,0 +1,212 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 .AppleSystemUIFontMonospaced-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red250\green249\blue242;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c1\c1;\cssrgb\c100000\c100000\c99985\c0;\cssrgb\c98431\c98032\c95972;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 // \'a9 SimpleCharts\
+\
+//@version=6\
+indicator("SimpleCharts", overlay = true, max_lines_count = 500, max_labels_count = 500, max_bars_back = 1000)\
+\
+// INPUTS\
+len = input.int(30, "Sensitivity", minval = 5, \
+     tooltip = "Controls how fast the signal responds to price moves.\\n\\nHigher \uc0\u8594  Earlier signals\\nLower \u8594  Stronger confirmation",\
+     group = "Settings", inline = "1")\
+\
+mult = input.float(3, "Range", minval = 0, step = 0.1,\
+     tooltip = "Sets how far your targets and stop loss are placed from the entry.\\n\\nHigher \uc0\u8594  More distance\\nLower \u8594  Less distance",\
+     group = "Settings", inline = "2")\
+\
+appearanceGroup = "Appearance"\
+BullColor = input.color(#00ff8f, "\uc0\u9650 ", group = appearanceGroup, inline="1")\
+BearColor = input.color(#ff0045, "\uc0\u9660 ", group = appearanceGroup, inline="1")\
+\
+alertsGroup = "Alerts"\
+longAlert   = input.bool(false, "Long", inline = "1", group = alertsGroup)\
+shortAlert  = input.bool(false, "Short", inline = "1", group = alertsGroup)\
+stopAlert = input.bool(false, "Stop", inline = "1", group = alertsGroup)\
+TP1alert = input.bool(false, "TP1", inline = "2", group = alertsGroup)\
+TP2alert = input.bool(false, "TP2", inline = "2", group = alertsGroup)\
+TP3alert = input.bool(false, "TP3", inline = "2", group = alertsGroup)\
+\
+type trades \
+    line takeProfit1 \
+    label takeP_lbl1\
+    line takeProfit2 \
+    label takeP_lbl2\
+    line takeProfit3 \
+    label takeP_lbl3\
+    line STOPLoss\
+    label STOPL_lbl\
+    label signal\
+    line ENTRY\
+    label ENTRYLbl\
+    linefill fill1\
+    linefill fill2\
+\
+atr = ta.atr(200) * mult\
+\
+ema(len)=>\
+    dist = ta.sma(high-low, 50)*2\
+    ema1 = ta.ema(close, len)\
+    ema2 = ta.ema(ema1, len)\
+    ema  = math.avg(ema1, ema2)\
+    upper = ta.sma(ema + dist, 5)\
+    lower = ta.sma(ema - dist, 5)\
+    [upper, lower, ema]\
+\
+trend(ec)=>\
+    var trend = bool(na)\
+    ema_ = ec\
+    dist = hl2 - ema_\
+    max  = ta.highest(math.abs(dist), 25)\
+    osc  = dist / max * 100\
+    if ta.crossover(osc, 60)\
+        trend := true\
+    if ta.crossunder(osc, -40)\
+        trend := false\
+    trend \
+\
+remove_tradeObj(tr)=>\
+    tr.takeProfit1.delete()\
+    tr.takeP_lbl1.delete()\
+    tr.takeProfit2.delete()\
+    tr.takeP_lbl2.delete()\
+    tr.takeProfit3.delete()\
+    tr.takeP_lbl3.delete()\
+    tr.STOPLoss.delete()\
+    tr.STOPL_lbl.delete()\
+    tr.signal.delete()\
+    tr.ENTRY.delete()\
+    tr.ENTRYLbl.delete()\
+    tr.fill1.delete()\
+    tr.fill2.delete()\
+\
+[upper, lower, ec] = ema(len)\
+trend = trend(ec)\
+\
+// TREND COLOR\
+trendColor = trend ? BullColor : BearColor\
+\
+setTP(tp, TPhit, txt)=>\
+    tp.set_style(line.style_dashed)\
+    tp.set_x2(bar_index)\
+    TPhit.set_style(trend ? "ldn" : "lup")\
+    TPhit.set_text("\uc0\u10687  TP"+txt)\
+    TPhit.set_xy(bar_index, trend ? high : low)\
+    TPhit.set_textcolor(BullColor)\
+    TPhit.set_color(color(na))\
+\
+// SIGNALS\
+bool long  = trend and not trend[1] and barstate.isconfirmed\
+bool short = not trend and trend[1] and barstate.isconfirmed\
+\
+var inTrade = false\
+var TP1Intrade = false\
+var TP2Intrade = false\
+var TP3Intrade = false\
+var trade_obj = array.new<trades>()\
+\
+plotshape((long or short) ? trend ? lower : upper : float(na), "Signals", shape.circle, color = (trend ? BullColor : BearColor), location = location.absolute, size = size.tiny, display = display.all)\
+\
+if (long or short) and last_bar_index - bar_index < 1000\
+    if longAlert or shortAlert\
+        message = long ? "Long" : "Short"\
+        alert(message + " | Symbol: " + syminfo.ticker("") + " | Price: "+ str.tostring(close), freq = alert.freq_once_per_bar_close)\
+\
+    if trade_obj.size() > 1 \
+        for tr in trade_obj\
+            remove_tradeObj(tr)\
+\
+    stValue = short ? high+atr : low-atr\
+    step = close - stValue\
+    TP1Value = close + step\
+    TP2Value = close + step*2\
+    TP3Value = close + step*3\
+\
+    SIGNALlabel = label.new(bar_index, close, short ? "SHORT \uc0\u9660 " : "LONG \u9650 ", color = color.new((trend ? BullColor : BearColor), 65), textcolor = chart.fg_color, style = label.style_label_right)\
+    ENTRY = line.new(bar_index, close, bar_index, close, color = chart.fg_color)\
+    ENTRYlabel = label.new(bar_index, close, "ENTRY \uc0\u8594  " + str.tostring(close, "###,###,###.##"), color = color.rgb(255, 255, 255, 70), textcolor = chart.fg_color, style = label.style_label_left)\
+    STOP = line.new(bar_index, stValue, bar_index, stValue, color = BearColor)\
+    STOPlabel = label.new(bar_index, stValue, "SL \uc0\u8594  " + str.tostring(stValue, "###,###,###.##"), color = color.new(BearColor, 65), textcolor = chart.fg_color, style = label.style_label_left)\
+    TP1 = line.new(bar_index, TP1Value, bar_index+5, TP1Value, color = BullColor)\
+    TP1label = label.new(bar_index, TP1Value, "TP1 \uc0\u8594  " + str.tostring(TP1Value, "###,###,###.##"), color = color.new(BullColor, 65), textcolor = chart.fg_color, style = label.style_label_left)\
+    TP2 = line.new(bar_index, TP2Value, bar_index+5, TP2Value, color = BullColor)\
+    TP2label = label.new(bar_index, TP2Value, "TP2 \uc0\u8594  " + str.tostring(TP2Value, "###,###,###.##"), color = color.new(BullColor, 65), textcolor = chart.fg_color, style = label.style_label_left)\
+    TP3 = line.new(bar_index, TP3Value, bar_index+5, TP3Value, color = BullColor)\
+    TP3label = label.new(bar_index, TP3Value, "TP3 \uc0\u8594  " + str.tostring(TP3Value, "###,###,###.##"), color = color.new(BullColor, 65), textcolor = chart.fg_color, style = label.style_label_left)\
+    fill1 = linefill.new(ENTRY, STOP, color.new(BearColor, 90))\
+    fill2 = linefill.new(ENTRY, TP3, color.new(BullColor, 90))\
+\
+    trade_obj.push(trades.new(TP1, TP1label, TP2, TP2label, TP3, TP3label, STOP, STOPlabel, SIGNALlabel, ENTRY, ENTRYlabel, fill1, fill2))\
+    inTrade := true\
+    TP1Intrade := true\
+    TP2Intrade := true\
+    TP3Intrade := true\
+\
+trendChange =  (trend != trend[1])\
+\
+if inTrade\
+    offset = 5\
+    if trade_obj.size() > 0 \
+        t = trade_obj.get(-1)\
+        bool TP1 = (trend ? high > t.takeProfit1.get_y1() : low < t.takeProfit1.get_y1()) and not trendChange\
+        bool TP2 = (trend ? high > t.takeProfit2.get_y1() : low < t.takeProfit2.get_y1()) and not trendChange\
+        bool TP3 = (trend ? high > t.takeProfit3.get_y1() : low < t.takeProfit3.get_y1()) and not trendChange\
+        bool ST = (trend ? low < t.STOPLoss.get_y1() : high > t.STOPLoss.get_y1()) and not trendChange\
+\
+        t.ENTRY.set_x2(bar_index + offset)\
+        t.ENTRYLbl.set_x(bar_index + offset)\
+        t.STOPLoss.set_x2(bar_index + offset)\
+        t.STOPL_lbl.set_x(bar_index + offset)\
+\
+        if TP1Intrade\
+            t.takeP_lbl1.set_x(bar_index + offset)\
+            t.takeProfit1.set_x2(bar_index + offset)\
+            if TP1 \
+                setTP(t.takeProfit1, t.takeP_lbl1, "1")\
+                TP1Intrade := false\
+                if TP1alert\
+                    message = trend ? "Long TP1" : "Short TP1"\
+                    alert(message + " | Symbol: " + syminfo.ticker("") + " | Price: "+ str.tostring(t.takeProfit1.get_y1()), freq = alert.freq_once_per_bar_close)\
+\
+        if TP2Intrade\
+            t.takeP_lbl2.set_x(bar_index + offset)\
+            t.takeProfit2.set_x2(bar_index + offset)\
+            if TP2\
+                setTP(t.takeProfit2, t.takeP_lbl2, "2")\
+                TP2Intrade := false\
+                if TP2alert\
+                    message = trend ? "Long TP2" : "Short TP2"\
+                    alert(message + " | Symbol: " + syminfo.ticker("") + " | Price: "+ str.tostring(t.takeProfit2.get_y1()), freq = alert.freq_once_per_bar_close)\
+\
+        if TP3Intrade\
+            t.takeP_lbl3.set_x(bar_index + offset)\
+            t.takeProfit3.set_x2(bar_index + offset)\
+            if TP3\
+                setTP(t.takeProfit3, t.takeP_lbl3, "3")\
+                TP3Intrade := false\
+                inTrade := false\
+                t.ENTRY.set_x2(bar_index )\
+                t.ENTRYLbl.set_x(bar_index )\
+                t.STOPLoss.set_x2(bar_index )\
+                t.STOPL_lbl.set_x(bar_index )\
+                if TP3alert\
+                    message = trend ? "Long TP3" : "Short TP3"\
+                    alert(message + " | Symbol: " + syminfo.ticker("") + " | Price: "+ str.tostring(t.takeProfit3.get_y1()), freq = alert.freq_once_per_bar_close)\
+\
+        if ST\
+            t.STOPLoss.set_style(line.style_dashed)\
+            t.STOPL_lbl.set_text("X")\
+            if stopAlert\
+                message = trend ? "Long STOPLoss" : "Short STOPLoss"\
+                alert(message + " | Symbol: " + syminfo.ticker("") + " | Price: "+ str.tostring(t.STOPLoss.get_y1()), freq = alert.freq_once_per_bar_close)\
+\
+barcolor(trendColor, title = "Bar Color")\
+plotcandle(open, high, low, close, title='Candle Color', color = trendColor, wickcolor = trendColor, bordercolor = trendColor)}
