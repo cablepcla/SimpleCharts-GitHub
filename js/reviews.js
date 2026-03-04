@@ -141,13 +141,13 @@ function generateHTML(list) {
           <img class="review-avatar" src="${escapeAttr(r.avatar)}" alt="${escapeAttr(r.username)}">
           <div>
             <div class="review-username">${escapeHtml(r.username)}</div>
-            <img class="review-stars" src="/svg/stars.svg">
+            <img class="review-stars" src="svg/stars.svg">
           </div>
         </div>
 
         <div class="review-tags">
-            <div class="tag"><img class="tag-icon" src="/svg/calendar.svg"> ${escapeHtml(r.date)}</div>
-            <div class="tag"><img class="tag-icon" src="/svg/location-pin.svg"> ${escapeHtml(r.location)}</div>
+            <div class="tag"><img class="tag-icon" src="svg/calendar.svg"> ${escapeHtml(r.date)}</div>
+            <div class="tag"><img class="tag-icon" src="svg/location-pin.svg"> ${escapeHtml(r.location)}</div>
         </div>
       </div>
     </article>
