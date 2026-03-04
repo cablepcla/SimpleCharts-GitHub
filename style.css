@@ -1610,7 +1610,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
 .timeframe-tile {
@@ -1622,27 +1622,10 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   transition: var(--transition-m);
 }
 
-.timeframe-tradingview-tile {
-  background: hsla(0, 0%, 18%, .6);
-  height: 148px;
-  width: 148px;
-  border-radius: 32px;
-  box-shadow: var(--highlight-sn);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  backdrop-filter: blur(12px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-m);
-}
-
-.timeframe-tradingview-logo {
-  height: 40px;
+.timeframe-tile.light {
+  background: hsla(0, 0%, 18%, 0.8);
 }
