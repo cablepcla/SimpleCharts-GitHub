@@ -107,8 +107,6 @@ body {
   --depth-l: inset 0 1px 2px var(--border-muted), 0 3px 8px hsl(0, 0%, 2%);
   --depth-sn: inset 0 1px 2px hsla(0, 0%, 100%, 0.1), 0 1px 2px hsla(0, 0%, 0%, 0.2);
 
-  --shadow: 0 2px 2px hsl(0, 0%, 3%);
-
   --highlight: inset 0 1px 2px hsl(0, 0%, 20%);
   --highlight-s: inset 0 1px 2px var(--border-muted);
   --highlight-2: inset 0 1px 2px var(--border-muted);
@@ -1024,7 +1022,7 @@ button {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: var(--shadow);
+  box-shadow: var(--depth);
 }
 
 .plan::after {
@@ -1482,11 +1480,11 @@ button {
 }
 
 .card:hover .alert-top {
-  transform: translateX(-8px);
+  transform: translateX(-6px);
 }
 
 .card:hover .alert-bottom {
-  transform: translateX(8px);
+  transform: translateX(6px);
 }
 
 .alert-left {
@@ -1639,7 +1637,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 16px;
+  gap: 12px;
 }
 
 .timeframe-tile {
@@ -1650,13 +1648,13 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
+  border-radius: 20px;
   font-size: 1.25rem;
   transition: var(--transition-s);
 }
 
 .card:hover .timeframe-tile {
-  transform: translateY(-5px);
+  border-radius: 28px;
   background: hsla(0, 0%, 12%);
 }
 
@@ -1680,8 +1678,8 @@ button {
 
 .card:hover .timeframe-tradingview-tile {
   background: hsla(0, 0%, 26%, .5);
-  height: 154px;
-  width: 154px;
+  height: 160px;
+  width: 160px;
 }
 
 .timeframe-tradingview-logo {
@@ -1690,7 +1688,7 @@ button {
 }
 
 .card:hover .timeframe-tradingview-logo {
-  height: 42px;
+  height: 44px;
 }
 
 
@@ -1723,9 +1721,37 @@ button {
 }
 
 .card:hover .asset-grid .grid-tile {
-  border-radius: 36px;
+  border-radius: 32px;
 }
 
 .tile-asset-logo {
   height: 50px;
+}
+
+.instant-setup-image {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 310px;
+  z-index: 1;
+  transition: var(--transition-m);
+}
+
+.card:hover .instant-setup-image {
+  transform: translate(-8px, -8px);
+  filter: brightness(1.1);
+}
+
+.fully-customizable-image {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  height: 260px;
+  transition: var(--transition-m);
+  z-index: 1;
+}
+
+.card:hover .fully-customizable-image {
+  transform: translate(-8px, -8px);
+  filter: brightness(1.1);
 }
