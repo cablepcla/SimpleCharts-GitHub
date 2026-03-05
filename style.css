@@ -1647,3 +1647,31 @@ button {
 .timeframe-tradingview-logo {
   height: 40px;
 }
+
+
+
+
+
+.grid-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.grid-tile {
+  background: hsl(0, 0%, 12%);
+  box-shadow: var(--highlight-sn);
+  width: 85px;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 1.25rem;
+  transition: var(--transition-s);
+}
+
+.tile-asset-logo {
+  height: 50px;
+}
