@@ -1426,6 +1426,39 @@ button {
   transition: var(--transition-m);
 }
 
+/* CARD TILES */
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: auto;
+  z-index: 1;
+}
+
+.grid-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.grid-tile {
+  background: hsl(0, 0%, 12%);
+  box-shadow: var(--highlight-sn);
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  font-size: 1.25rem;
+  transition: var(--transition-s);
+}
+
+
+/* CARD ALERTS */
 
 .alerts {
   display: flex;
@@ -1448,10 +1481,13 @@ button {
   transition: var(--transition-m);
 }
 
-.card:hover .alert {
-  transform: scale(0.98);
+.card:hover .alert-top {
+  transform: translateX(-8px);
 }
 
+.card:hover .alert-bottom {
+  transform: translateX(8px);
+}
 
 .alert-left {
   display: flex;
@@ -1587,6 +1623,8 @@ button {
   color: #999999;
 }
 
+/* TIMEFRAME-TILES */
+
 .timeframe-body {
   display: flex;
   align-items: center;
@@ -1605,7 +1643,7 @@ button {
 }
 
 .timeframe-tile {
-  background: hsla(0, 0%, 12%, 0.8);
+  background: hsla(0, 0%, 14%);
   box-shadow: var(--highlight-sn);
   width: 85px;
   height: 85px;
@@ -1618,14 +1656,15 @@ button {
 }
 
 .card:hover .timeframe-tile {
-  transform: scale(0.96);
+  transform: translateY(-5px);
+  background: hsla(0, 0%, 12%);
 }
 
 .timeframe-tradingview-tile {
   background: hsla(0, 0%, 22%, .4);
   height: 148px;
   width: 148px;
-  border-radius: 24px;
+  border-radius: 32px;
   box-shadow: var(--highlight-sn);
   position: absolute;
   top: 50%;
@@ -1641,35 +1680,50 @@ button {
 
 .card:hover .timeframe-tradingview-tile {
   background: hsla(0, 0%, 26%, .5);
-  ;
+  height: 154px;
+  width: 154px;
 }
 
 .timeframe-tradingview-logo {
   height: 40px;
-}
-
-
-
-
-
-.grid-tiles {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.grid-tile {
-  background: hsl(0, 0%, 12%);
-  box-shadow: var(--highlight-sn);
-  width: 85px;
-  height: 85px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  font-size: 1.25rem;
   transition: var(--transition-s);
+}
+
+.card:hover .timeframe-tradingview-logo {
+  height: 42px;
+}
+
+
+.card:hover .browser-grid .grid-tile {
+  background: hsl(0, 0%, 11%);
+}
+
+.browser-grid {
+  margin-bottom: -100px;
+  transition: var(--transition-s);
+}
+
+.card:hover .browser-grid {
+  margin-bottom: -95px;
+  scale: 0.98;
+}
+
+.browser-grid .grid-tile {
+  height: 100px;
+  width: 100px;
+  border-radius: 28px;
+}
+
+.browser-logo {
+  height: 65px;
+}
+
+.asset-grid {
+  margin-bottom: -40px;
+}
+
+.card:hover .asset-grid .grid-tile {
+  border-radius: 36px;
 }
 
 .tile-asset-logo {
