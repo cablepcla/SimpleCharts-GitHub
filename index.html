@@ -21,6 +21,21 @@
                 <a class="nav-link" href="#testimonials">Testimonials</a>
                 <a class="nav-link" href="#faq">FAQ</a>
             </div>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a class="nav-link" href="#pricing" onclick="closeMenu()">Pricing</a>
+            <a class="nav-link" href="#contact" onclick="closeMenu()">Contact</a>
+            <a class="nav-link" href="#testimonials" onclick="closeMenu()">Testimonials</a>
+            <a class="nav-link" href="#faq" onclick="closeMenu()">FAQ</a>
             <a href="#checkout" class="get-button"><svg class="simpletrade-icon" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 24 24">
                     <g fill="#D7F906" clip-path="url(#clip0_909_1960)">
@@ -35,32 +50,14 @@
                         </clipPath>
                     </defs>
                 </svg>Get SimpleTrade <img class="button-arrow" src="svg/get-arrow-white.svg"></a>
-
-            <!-- Hamburger -->
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobile-menu">
-            <a class="nav-link" href="#pricing" onclick="closeMenu()">PRICING</a>
-            <a class="nav-link" href="#contact" onclick="closeMenu()">CONTACT</a>
-            <a class="nav-link" href="#testimonials" onclick="closeMenu()">TESTIMONIALS</a>
-            <a class="nav-link" href="#faq" onclick="closeMenu()">FAQ</a>
-            <a href="#checkout" class="button get-button" onclick="closeMenu()"><span class="get-button-inside">GET
-                    SIMPLETRADE <img class="button-arrow" src="svg/get-arrow.svg"></span></a>
         </div>
     </section>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-
             <div class="laurel-banner">
-                <svg class="laurel" width="44" height="44" viewBox="0 0 44 44" fill="none"
+                <svg class="laurel laurel-left" width="44" height="44" viewBox="0 0 44 44" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M25.5306 38.6114C24.462 38.5202 23.1373 38.8157 22.2338 39.3657C21.8472 39.5888 21.7938 39.9377 22.1238 40.2331C22.9519 40.9874 24.2232 41.5578 25.309 41.6317C26.4326 41.7794 27.7762 41.429 28.6798 40.7485C28.9752 40.5442 28.994 40.2331 28.7159 39.9754C27.9066 39.2211 26.6353 38.6868 25.5306 38.6114ZM29.3979 32.3885C28.8086 33.2905 28.477 34.6152 28.5148 35.6838C28.587 36.8074 29.104 38.096 29.8222 38.8895C30.061 39.1645 30.3565 39.1645 30.5953 38.8691C31.3135 38.0221 31.7 36.6785 31.59 35.5377C31.5162 34.4691 30.9819 33.1978 30.2449 32.3508C29.9683 32.0208 29.6368 32.0381 29.3979 32.3885ZM20.3386 33.6221C19.325 33.2528 17.9438 33.2167 16.9129 33.5294C16.5075 33.6582 16.3975 33.971 16.6175 34.3402C17.2256 35.2784 18.3115 36.1442 19.325 36.512C20.3559 36.9362 21.756 36.9362 22.8058 36.4947C23.1562 36.3658 23.2473 36.0892 23.0446 35.7577C22.4553 34.818 21.3695 33.9725 20.3386 33.6221ZM25.6406 28.6124C24.8502 29.3305 24.1682 30.5091 23.9655 31.5588C23.7266 32.6635 23.8916 34.0448 24.3898 34.9845C24.5359 35.3334 24.8298 35.39 25.144 35.1684C26.0288 34.5241 26.7469 33.3267 26.9308 32.1858C27.1508 31.1361 26.9669 29.7548 26.4703 28.7601C26.3038 28.3547 25.9549 28.2997 25.6422 28.6124H25.6406ZM12.5868 26.4941C12.7345 27.5627 13.3788 28.8151 14.1708 29.5898C14.9439 30.3991 16.2136 30.9507 17.356 30.9884C17.7238 31.0072 17.9265 30.7684 17.8715 30.3991C17.6876 29.2755 17.0433 28.0781 16.2513 27.36C15.4593 26.6057 14.2446 26.0164 13.176 25.8875C12.7345 25.8325 12.5129 26.0714 12.5868 26.4941ZM23.1389 24.9117C22.0562 25.3144 21.1106 26.0169 20.4125 26.9372C19.7509 27.8015 19.3628 29.1105 19.4005 30.253C19.4366 30.6018 19.677 30.7857 20.0448 30.7307C21.1495 30.473 22.3092 29.681 22.8985 28.7224C23.5066 27.7842 23.912 26.4752 23.8382 25.391C23.8382 24.9478 23.5616 24.7624 23.1389 24.9117ZM20.0636 20.6028C19.1978 21.3021 18.4796 22.4807 18.258 23.5665C18.203 23.8981 18.3869 24.1558 18.7373 24.1747C19.8782 24.2108 21.1872 23.7142 22.0153 22.9772C22.8435 22.2591 23.5805 21.0617 23.8193 19.9947C23.8759 19.5892 23.6543 19.3127 23.2489 19.3315C22.1442 19.4242 20.8729 19.902 20.0636 20.6028ZM12.6025 18.1891C12.5074 19.3714 12.7773 20.5545 13.3756 21.5787C13.9272 22.5718 15.0146 23.4377 16.0832 23.7315C16.4132 23.8431 16.7086 23.6592 16.7448 23.2915C16.8548 22.2402 16.542 20.8967 15.9528 19.9397C15.3635 19.0188 14.3138 18.1341 13.3379 17.7475C12.9513 17.5825 12.6386 17.7475 12.6025 18.1891ZM21.0725 14.4145C20.0228 14.7822 18.9353 15.612 18.3476 16.569C18.1449 16.8644 18.2549 17.1771 18.5865 17.3232C19.6362 17.7475 21.0175 17.7475 22.0672 17.3232C23.1358 16.9194 24.2405 16.0347 24.7748 15.0965C24.9948 14.765 24.8848 14.4522 24.4793 14.3218C23.4296 14.028 22.0672 14.0468 21.0725 14.4145ZM14.8858 9.59024C14.4065 10.6022 14.2226 11.9647 14.4253 13.0332C14.628 14.1568 15.3462 15.3354 16.267 15.9985C16.542 16.2185 16.8375 16.1274 17.0213 15.7942C17.5006 14.8388 17.6656 13.4748 17.4268 12.389C17.2068 11.3204 16.5059 10.1418 15.7328 9.40482C15.4373 9.1471 15.09 9.22096 14.8858 9.59024ZM24.4055 9.11096C23.3196 9.31367 22.1222 10.013 21.4418 10.86C21.2202 11.1177 21.2752 11.432 21.5706 11.6331C22.5449 12.2051 23.9278 12.3874 25.0136 12.0935C26.0995 11.8547 27.2969 11.1365 27.9962 10.3257C28.2728 9.99567 28.2005 9.6641 27.8123 9.49753C26.739 9.03795 25.5544 8.90354 24.4055 9.11096ZM18.973 3.4381C18.3476 4.37782 17.9799 5.72296 18.0522 6.78996C18.071 7.91353 18.6242 9.18482 19.435 9.99567C19.71 10.2534 20.0228 10.2157 20.2255 9.92182C20.8336 8.9821 21.2013 7.63696 21.1102 6.56996C21.0363 5.52024 20.5382 4.26782 19.8389 3.40196C19.545 3.07196 19.2135 3.1081 18.9746 3.43967L18.973 3.4381ZM28.4755 1.5791C27.4069 1.7441 26.1922 2.38996 25.419 3.14424C24.6459 3.89853 24.0362 5.17139 23.9089 6.23839C23.8728 6.6061 24.0739 6.82767 24.4432 6.80882C25.5668 6.75382 26.8176 6.16453 27.5923 5.30024C28.3278 4.52553 28.9359 3.29196 29.1009 2.18724C29.1386 1.76296 28.917 1.5241 28.4755 1.5791Z"
@@ -71,7 +68,7 @@
                     <div class="laurel-text-bottom">TradingView</div>
                 </div>
 
-                <svg class="laurel" width="44" height="44" viewBox="0 0 44 44" fill="none"
+                <svg class="laurel laurel-right" width="44" height="44" viewBox="0 0 44 44" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M18.6481 38.6118C17.5434 38.6856 16.2737 39.2199 15.4629 39.9758C15.1863 40.2335 15.2051 40.5462 15.499 40.7489C16.4026 41.4293 17.7461 41.7798 18.8697 41.6321C19.9383 41.5582 21.208 40.9878 22.055 40.2335C22.3866 39.9381 22.3316 39.5892 21.945 39.3676C21.043 38.8145 19.7167 38.5191 18.6481 38.6133V38.6118ZM14.7824 32.3889C14.542 32.0385 14.2104 32.0196 13.9339 32.3512C13.1984 33.1998 12.6641 34.4695 12.5903 35.5365C12.4803 36.6789 12.8669 38.0225 13.585 38.8695C13.8239 39.1649 14.1193 39.1649 14.3581 38.8883C15.0763 38.0963 15.5917 36.8078 15.6467 35.6842C15.7017 34.6156 15.3529 33.2925 14.7824 32.3889ZM23.8417 33.6225C22.8109 33.9713 21.7234 34.8183 21.1341 35.7581C20.9314 36.0881 21.0241 36.3662 21.3746 36.4951C22.4243 36.9366 23.8229 36.9366 24.8553 36.5123C25.8673 36.1446 26.9531 35.2788 27.5613 34.3406C27.7813 33.9713 27.6713 33.6586 27.2674 33.5298C26.235 33.2155 24.8553 33.2532 23.8417 33.6225ZM18.5381 28.6128C18.2081 28.2985 17.875 28.3551 17.71 28.7605C17.2119 29.7552 17.028 31.1365 17.2307 32.1862C17.4334 33.3271 18.1516 34.5245 19.0347 35.1688C19.3301 35.3888 19.6429 35.3338 19.789 34.9849C20.2871 34.0452 20.4349 32.6639 20.2133 31.5592C19.9933 30.5095 19.3301 29.3309 18.5381 28.6128ZM31.5951 26.4945C31.6674 26.0702 31.4474 25.8329 31.0059 25.8879C29.9373 26.0168 28.721 26.6061 27.9306 27.3603C27.1386 28.0785 26.4927 29.2759 26.3089 30.3995C26.2539 30.7672 26.4566 31.0076 26.8243 30.9888C27.9667 30.9511 29.238 30.3995 30.0111 29.5902C30.8031 28.8155 31.4474 27.5631 31.5951 26.4945ZM21.0241 24.9121C20.6187 24.7643 20.3421 24.9482 20.3421 25.3898C20.2699 26.4772 20.6564 27.7846 21.2819 28.7228C21.8711 29.6813 23.0309 30.4733 24.1371 30.7311C24.486 30.7861 24.7437 30.6022 24.7626 30.2518C24.8176 29.1093 24.4121 27.8019 23.7679 26.9361C23.0667 26.0119 22.1141 25.3092 21.0241 24.9121ZM24.0994 20.6032C23.3074 19.9023 22.0377 19.4246 20.9314 19.3303C20.5071 19.3146 20.306 19.5896 20.361 19.9951C20.5999 21.0636 21.3196 22.2595 22.1666 22.9776C22.9759 23.7146 24.3021 24.2112 25.4446 24.1751C25.7746 24.1562 25.9789 23.8985 25.9223 23.5669C25.6579 22.4051 25.0171 21.3632 24.0994 20.6032ZM31.5763 18.1895C31.5213 17.7495 31.2259 17.5829 30.8393 17.7495C29.8446 18.1345 28.7964 19.0192 28.2244 19.9401C27.6351 20.8971 27.3036 22.2406 27.4324 23.2903C27.4701 23.6596 27.7467 23.8435 28.0956 23.7335C29.1641 23.4381 30.25 22.5722 30.8031 21.5791C31.4015 20.5549 31.6713 19.3718 31.5763 18.1895ZM23.1063 14.4149C22.11 14.0472 20.7491 14.0283 19.6979 14.3222C19.2924 14.4511 19.1824 14.7653 19.3851 15.0969C19.9383 16.0351 21.0241 16.9198 22.11 17.3252C23.1424 17.7495 24.541 17.7495 25.5907 17.3252C25.9223 17.1775 26.015 16.8648 25.8311 16.5709C25.2419 15.6123 24.1544 14.7826 23.1047 14.4149H23.1063ZM29.2741 9.59063C29.0903 9.22134 28.7399 9.14748 28.4271 9.4052C27.6729 10.1438 26.972 11.3223 26.752 12.3893C26.5116 13.4752 26.6593 14.8392 27.1559 15.7962C27.3224 16.1262 27.6351 16.2205 27.9101 15.9989C28.8137 15.3358 29.5319 14.1572 29.7346 13.0336C29.9546 11.9651 29.7707 10.6026 29.2741 9.59063ZM19.7529 9.11134C18.6843 8.89134 17.3407 9.05634 16.3649 9.49791C15.9783 9.66448 15.8871 9.99448 16.1621 10.3261C16.8803 11.1369 18.0793 11.8551 19.1463 12.0939C20.251 12.3893 21.6323 12.2039 22.5893 11.6335C22.9036 11.4323 22.9586 11.1181 22.737 10.8603C21.9618 9.96488 20.9129 9.35012 19.7529 9.11134ZM25.2057 3.43848C24.9653 3.10848 24.6149 3.07077 24.3383 3.40234C23.639 4.26663 23.1236 5.52063 23.0686 6.57034C22.9586 7.63891 23.3263 8.98248 23.9517 9.9222C24.156 10.2161 24.4671 10.2522 24.7437 9.99448C25.5546 9.1852 26.1061 7.91391 26.1266 6.79034C26.1989 5.72177 25.8311 4.3782 25.2041 3.44005L25.2057 3.43848ZM15.7001 1.58105C15.2601 1.52605 15.037 1.76491 15.0747 2.1892C15.2397 3.29391 15.8479 4.52748 16.5833 5.30063C17.358 6.16648 18.6104 6.75577 19.734 6.81077C20.1017 6.82963 20.3044 6.60805 20.2683 6.24034C20.1394 5.17177 19.5297 3.90205 18.7393 3.1462C17.985 2.39191 16.7687 1.74763 15.7001 1.58105Z"
@@ -84,33 +81,17 @@
             <h1 class="hero-heading">The Simple Way to Find<br><span class="text-primary">Winning Trades</span></h1>
             <h5 class="hero-subheading">A TradingView indicator that shows clear signals, take-profit levels, and
                 stop‑loss directly on your chart.</h5>
-            <a href="#checkout" class="get-button"><svg class="simpletrade-icon" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 24 24">
-                    <g fill="#D7F906" clip-path="url(#clip0_909_1960)">
-                        <path
-                            d="M0 .002 5.44 0c2.042.123 3.697 1.567 4.405 3.435.423 1.117.427 2.315.722 3.468.656 2.56 2.201 4.85 4.631 5.992 2.674 1.257 5.88.61 8.756.769v10.293s-3.64.096-5.33 0c-2.544-.144-4.487-1.892-4.891-4.394-.088-.546-.073-1.106-.151-1.656-.597-4.189-3.722-7.387-7.998-7.646L0 10.263z" />
-                        <path
-                            d="m23.954 10.257-5.618.006c-1.693-.177-3.288-1.2-4.078-2.715-1.741-3.34.493-7.264 4.186-7.547l5.51.006zM0 13.659h5.402c2.435.162 4.527 2.057 4.819 4.502.36 3.022-1.88 5.612-4.892 5.795H0z" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_909_1960">
-                            <path fill="#fff" d="M0 0h23.954v24H0z" />
-                        </clipPath>
-                    </defs>
-                </svg>Get SimpleTrade <img class="button-arrow" src="svg/get-arrow-white.svg"></a>
+            <a href="#checkout" class="get-button">Get SimpleTrade <img class="button-arrow"
+                    src="svg/get-arrow.svg"></a>
             <div class="mac-window-glow">
                 <div class="mac-window-border">
                     <div class="mac-window" id="home-video">
-                        <div class="mac-window-nav">
-                            <div class="mac-circle mac-circle--red"></div>
-                            <div class="mac-circle mac-circle--yellow"></div>
-                            <div class="mac-circle mac-circle--green"></div>
-                        </div>
-                        <img class="mac-window-video" src="img/img-test-2.png">
+                        <img class="mac-window-video" src="img/video-to-gif.gif">
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- EXCHANGE BAR -->
@@ -146,7 +127,7 @@
         <div class="two-column">
             <img class="two-column-img" src="img/img-test-2.png">
             <div class="two-column-right">
-                <h2>Everything You Need, <span class="text-primary">On Your Charts</span></h2>
+                <h3>Everything You Need, <span class="text-primary">On Your Charts</span></h3>
                 <p class="feature-desc">
                     SimpleTrade puts everything you need directly on your chart in a clean, easy-to-follow way.
                 </p>
@@ -183,7 +164,7 @@
     <!-- CARDS -->
     <section class="section">
         <div class="section-content cards-section-content">
-            <h2 class="section-heading"><span class="text-primary">Unlimited Power,</span> Surprisingly Simple</h2>
+            <h2 class="section-heading">Unlimited Power, Surprisingly Simple</h2>
 
             <!-- Slider viewport -->
             <div class="cards-slider-outer">
@@ -965,48 +946,40 @@
     </section>
 
 
+    <!-- FOOTER -->
+    <section class="footer">
+        <div class="footer-content">
+            <img src="svg/logo.svg">
+            <div class="footer-links">
+                <div class="footer-links-column">
+                    <a class="footer-link">Pricing</a>
+                    <a class="footer-link">Contact</a>
+                    <a class="footer-link">Testimonials</a>
+                    <a class="footer-link">FAQ</a>
+                </div>
+                <div class="footer-links-column">
+                    <a class="footer-link">Privacy Policy</a>
+                    <a class="footer-link">Terms of Service</a>
+                    <a class="footer-link">Refunds</a>
+                    <a class="footer-link">Get SimpleTrade</a>
+                </div>
 
+            </div>
+        </div>
+    </section>
 
+    <!-- DISCLAIMER -->
+    <section class="disclaimer">
+        <p class="disclaimer-text">Trading & investing are risky and many will lose money in connection with trading and
+            investing activities. All
+            content on this site is not intended to, and should not be, construed as financial advice. Decisions to buy,
+            sell, hold or trade in securities, commodities and other investments involve risk and are best made based on
+            the
+            advice of qualified financial professionals. Past performance does not guarantee future results.
 
-
-
-
-
-
-
-    <script>
-        (function () {
-            const slider = document.getElementById('cardsSlider');
-            const btnPrev = document.getElementById('cardsPrev');
-            const btnNext = document.getElementById('cardsNext');
-
-            if (!slider || !btnPrev || !btnNext) return;
-
-            /* One step = first card's width + the 32px gap */
-            function step() {
-                const card = slider.querySelector('.card');
-                return card ? card.offsetWidth + 32 : 377;
-            }
-
-            function updateButtons() {
-                btnPrev.disabled = slider.scrollLeft <= 0;
-                btnNext.disabled =
-                    slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 1;
-            }
-
-            btnPrev.addEventListener('click', () =>
-                slider.scrollBy({ left: -step(), behavior: 'smooth' })
-            );
-            btnNext.addEventListener('click', () =>
-                slider.scrollBy({ left: step(), behavior: 'smooth' })
-            );
-
-            slider.addEventListener('scroll', updateButtons, { passive: true });
-            window.addEventListener('resize', updateButtons);
-
-            updateButtons(); // set initial disabled state
-        })();
-    </script>
+            Hypothetical or Simulated performance results have certain limitations. Unlike an actual performance record,
+            simulated results do not represent actual trading.</p>
+    </section>
 
 
 
@@ -1023,6 +996,7 @@
 
 
 
+    <script src="js/card-carousel.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/faq.js"></script>
     <script src="js/reviews.js"></script>

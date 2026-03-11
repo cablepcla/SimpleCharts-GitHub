@@ -1,42 +1,31 @@
-const track = document.getElementById('track');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const dotsContainer = document.getElementById('dots');
+(function () {
+    const slider = document.getElementById('cardsSlider');
+    const btnPrev = document.getElementById('cardsPrev');
+    const btnNext = document.getElementById('cardsNext');
 
-const VISIBLE = 3;
-const GAP = 20;
-let current = 0;
+    if (!slider || !btnPrev || !btnNext) return;
 
-const cards = track.querySelectorAll('.card');
-const total = cards.length;
-const maxIndex = total - VISIBLE;
+    /* One step = first card's width + the 32px gap */
+    function step() {
+        const card = slider.querySelector('.card');
+        return card ? card.offsetWidth + 32 : 377;
+    }
 
-// Build dots
-for (let i = 0; i <= maxIndex; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-}
+    function updateButtons() {
+        btnPrev.disabled = slider.scrollLeft <= 0;
+        btnNext.disabled =
+            slider.scrollLeft >= slider.scrollWidth - slider.clientWidth - 1;
+    }
 
-function goTo(index) {
-    current = Math.max(0, Math.min(index, maxIndex));
-
-    const cardWidth = cards[0].offsetWidth;
-    const offset = current * (cardWidth + GAP);
-
-    track.style.transform = `translateX(-${offset}px)`;
-
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === maxIndex;
-
-    document.querySelectorAll('.dot').forEach((d, i) =>
-        d.classList.toggle('active', i === current)
+    btnPrev.addEventListener('click', () =>
+        slider.scrollBy({ left: -step(), behavior: 'smooth' })
     );
-}
+    btnNext.addEventListener('click', () =>
+        slider.scrollBy({ left: step(), behavior: 'smooth' })
+    );
 
-function move(dir) { goTo(current + dir); }
+    slider.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons);
 
-window.addEventListener('resize', () => goTo(current));
-
-goTo(0);
+    updateButtons(); // set initial disabled state
+})();
