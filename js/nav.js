@@ -20,7 +20,6 @@ const navHTML = `
     <a class="nav-link" href="#contact" onclick="closeMenu()">Contact</a>
     <a class="nav-link" href="#testimonials" onclick="closeMenu()">Testimonials</a>
     <a class="nav-link" href="#faq" onclick="closeMenu()">FAQ</a>
-    <a href="#checkout" class="get-button">Get SimpleTrade <img class="button-arrow" src="/svg/get-arrow.svg"></a>
   </div>
 </section>`;
 
