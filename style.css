@@ -44,7 +44,7 @@ body {
   --padding-hm: 1rem;
 
   /* COLORS */
-  --primary: hsl(68, 95%, 50%);
+  --primary: #B2FF32;
 
   --bg-dark: hsl(0, 0%, 4%);
   --bg: hsl(0, 0%, 6%);
@@ -283,9 +283,9 @@ button {
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
+  border-radius: 16px;
   border: none;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   gap: 8px;
   font-weight: 400;
   cursor: pointer;
@@ -429,7 +429,7 @@ button {
 }
 
 .nav-link {
-  font-size: .875rem;
+  font-size: 1rem;
   line-height: 1;
   color: var(--text);
   cursor: pointer;
@@ -441,7 +441,7 @@ button {
 }
 
 .nav-logo {
-  height: 20px;
+  height: 24px;
 }
 
 .hamburger {
@@ -525,8 +525,22 @@ button {
   display: flex;
   align-items: center;
   position: relative;
-  background: #0D0D0D;
+  background: hsl(0, 0%, 4%);
   overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  background: radial-gradient(ellipse at top left,
+      rgba(145, 145, 145, 0.18) 0%,
+      rgba(145, 145, 145, 0.06) 35%,
+      transparent 65%);
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  top: -20%;
+  left: -5%;
+  pointer-events: none;
 }
 
 
@@ -1389,8 +1403,7 @@ button {
   background-color: var(--bg);
   padding: 20px 0px 20px 20px;
   border-radius: 32px;
-  border: solid 1px #1C1C1C;
-  box-shadow: var(--highlight);
+  border: solid 1px hsl(0, 0%, 16%);
 }
 
 @media (max-width: 768px) {
@@ -1421,12 +1434,12 @@ button {
 .two-column-img-wrapper {
   width: 60%;
   border-radius: 24px;
-
   overflow: hidden;
   background-color: #141414;
   align-items: center;
   display: flex;
   position: relative;
+  border: solid 1px hsl(0, 0%, 14%);
 }
 
 @media (max-width: 768px) {
@@ -1439,7 +1452,6 @@ button {
   content: "";
   position: absolute;
   inset: 0;
-  box-shadow: var(--highlight);
   border-radius: 24px;
 }
 
@@ -1465,7 +1477,7 @@ button {
   margin: 0 auto;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: CENTER;
+  justify-content: center;
 }
 
 .card {
