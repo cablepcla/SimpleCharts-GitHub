@@ -525,22 +525,8 @@ button {
   display: flex;
   align-items: center;
   position: relative;
-  background: hsl(0, 0%, 4%);
+  background: hsl(0, 0%, 6%);
   overflow: hidden;
-}
-
-.hero::after {
-  content: "";
-  background: radial-gradient(ellipse at top left,
-      rgba(145, 145, 145, 0.18) 0%,
-      rgba(145, 145, 145, 0.06) 35%,
-      transparent 65%);
-  width: 120%;
-  height: 120%;
-  position: absolute;
-  top: -20%;
-  left: -5%;
-  pointer-events: none;
 }
 
 
@@ -1109,7 +1095,7 @@ button {
 }
 
 .feature-card:hover .feature-icon-wrap {
-  background: hsl(70, 30%, 12%);
+  background: hsl(82, 31%, 12%);
 }
 
 .feature-icon {
@@ -1118,7 +1104,7 @@ button {
 }
 
 .feature-card:hover .feature-icon {
-  filter: drop-shadow(0 0 8px hsl(68, 95%, 50%, 1));
+  filter: drop-shadow(0 0 8px var(--primary));
 }
 
 /* CHECKOUT */
@@ -1310,7 +1296,7 @@ button {
   position: relative;
   overflow: hidden;
   margin: 0 auto;
-  background: var(--bg-dark);
+  background: var(--bg);
   border-top: var(--border-muted) 0.5px solid;
   border-bottom: var(--border-muted) 0.5px solid;
 }
@@ -1356,20 +1342,15 @@ button {
   width: 100px;
   background: hsl(0, 0%, 6%);
   border-radius: 24px;
-  box-shadow: var(--depth);
+  box-shadow: var(--highlight-sn);
   margin-bottom: 1rem;
   transition: var(--transition-m);
 }
 
-.shield-frame:hover {
-  background: hsl(70, 30%, 12%);
-  filter: drop-shadow(0 0 32px hsl(68, 95%, 50%, .25));
-  box-shadow: inset 0 1px 2px hsla(68.462, 92.126%, 20%);
-}
 
 .big-shield {
   width: 64px;
-  filter: drop-shadow(0 0 16px hsl(68, 95%, 50%, .6));
+  filter: drop-shadow(0 0 16px hsl(82, 95%, 50%, .6));
   transition: var(--transition-m);
 }
 
