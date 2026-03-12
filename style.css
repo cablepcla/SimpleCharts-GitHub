@@ -299,11 +299,6 @@ button {
   transition: var(--transition-f);
 }
 
-.get-button:hover {
-  background-color: hsl(62, 100%, 60%);
-
-}
-
 .get-button::after {
   content: '';
   position: absolute;
