@@ -1381,11 +1381,11 @@ button {
     transform: translateX(-120%);
   }
 
-  33% {
+  35% {
     transform: translateX(120%);
   }
 
-  33.01% {
+  35.01% {
     transform: translateX(-120%);
   }
 
@@ -1420,11 +1420,11 @@ button {
   z-index: 1;
   animation: shine-2 8s infinite;
   background: linear-gradient(105deg,
-      transparent 20%,
-      rgba(255, 255, 255, 0.02) 30%,
-      rgba(255, 255, 255, 0.06) 50%,
-      rgba(255, 255, 255, 0.02) 70%,
-      transparent 80%);
+      transparent 35%,
+      rgba(255, 255, 255, 0.03) 40%,
+      rgba(255, 255, 255, 0.07) 50%,
+      rgba(255, 255, 255, 0.03) 60%,
+      transparent 65%);
 }
 
 @media (max-width: 768px) {
