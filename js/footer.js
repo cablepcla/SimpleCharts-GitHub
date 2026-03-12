@@ -2,7 +2,7 @@ const footerHTML = `
 <section class="footer">
   <div class="footer-content">
     <a href="/index.html" style="display:flex;">
-        <img src="/svg/logo.svg">
+        <img src="svg/logo.svg">
     </a>
     <div class="footer-links">
       <div class="footer-links-column">
@@ -12,9 +12,9 @@ const footerHTML = `
         <a class="footer-link" href="#faq">FAQ</a>
       </div>
       <div class="footer-links-column">
-        <a class="footer-link" href="/privacy.html">Privacy Policy</a>
-        <a class="footer-link" href="/terms.html">Terms of Service</a>
-        <a class="footer-link" href="/refunds.html">Refunds</a>
+        <a class="footer-link" href="privacy.html">Privacy Policy</a>
+        <a class="footer-link" href="terms.html">Terms of Service</a>
+        <a class="footer-link" href="">Refunds</a>
         <a class="footer-link" href="#checkout">Get SimpleTrade</a>
       </div>
     </div>

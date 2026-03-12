@@ -3,7 +3,7 @@ const navHTML = `
   <div class="nav-wrapper">
     <div class="left-nav">
       <a href="/index.html" style="display:flex;">
-        <img src="/svg/logo.svg">
+        <img src="svg/logo.svg">
       </a>
       <div class="nav-line"></div>
       <a class="nav-link" href="#pricing">Pricing</a>
