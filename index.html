@@ -10,39 +10,7 @@
 </head>
 
 <body>
-    <!-- NAV -->
-    <section class="nav">
-        <div class="nav-wrapper">
-            <div class="left-nav">
-                <img class="nav-logo" src="svg/logo.svg">
-                <div class="nav-line"></div>
-                <a class="nav-link" href="#pricing">Pricing</a>
-                <a class="nav-link" href="#contact">Contact</a>
-                <a class="nav-link" href="#testimonials">Testimonials</a>
-                <a class="nav-link" href="#faq">FAQ</a>
-            </div>
-
-            <!-- Hamburger -->
-            <button class="hamburger" id="hamburger" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu" id="mobile-menu">
-            <a class="nav-link" href="#pricing" onclick="closeMenu()">Pricing</a>
-            <a class="nav-link" href="#contact" onclick="closeMenu()">Contact</a>
-            <a class="nav-link" href="#testimonials" onclick="closeMenu()">Testimonials</a>
-            <a class="nav-link" href="#faq" onclick="closeMenu()">FAQ</a>
-            <a href="#checkout" class="get-button">Get SimpleTrade <img class="button-arrow"
-                    src="svg/get-arrow.svg"></a>
-        </div>
-    </section>
-
     <!-- HERO -->
-
     <section class="hero">
         <div class="hero-content">
             <div class="laurel-banner">
@@ -133,13 +101,14 @@
     </section>
 
     <!-- TWO-COLUMN-IMAGE -->
-    <section class="section">
+    <section class="section section-border-bottom">
         <div class="section-content">
-            <div class="two-column">
-                <div class="two-column-img-wrapper">
-                    <img class="two-column-img" src="img/new-test.png">
+            <div class="big-card">
+                <div class="slideshow">
+                    <img src="img/slideshow-1.png">
+                    <img src="img/slideshow-2.png">
                 </div>
-                <div class="two-column-right">
+                <div class="big-card-info">
                     <h3>Everything You Need, <br> <span class="text-primary">On Your Charts</span></h3>
                     <p class="feature-desc">
                         SimpleTrade puts everything you need directly on your chart in a clean, easy-to-follow way.
@@ -162,7 +131,7 @@
                         </div>
                         <div class="plan-feature-text">Stop-Loss Level</div>
                     </div>
-                    <a href="#checkout" class="get-button section-button">Get SimpleTrade <img class="button-arrow"
+                    <a href="#checkout" class="get-button">Get SimpleTrade <img class="button-arrow"
                             src="svg/get-arrow.svg"></a>
                 </div>
             </div>
@@ -171,7 +140,7 @@
 
 
     <!-- CARDS -->
-    <section class="section">
+    <section class="section section-border-bottom">
         <div class="section-content cards-section-content">
             <h2 class="section-heading">Unlimited Power, Surprisingly Simple</h2>
 
@@ -402,13 +371,13 @@
                 </button>
             </div>
 
-        </div><!-- /.section-content -->
+        </div>
     </section>
 
 
 
     <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
+    <section class="section section-border-bottom" id="testimonials">
         <div class="section-content">
             <h2 class="section-heading">Join Thousands of Confident Traders</h2>
             <div class="review-tracks">
@@ -419,7 +388,7 @@
     </section>
 
     <!-- CHECKOUT -->
-    <section class="section" id="checkout">
+    <section class="section section-border-bottom" id="checkout">
         <div class="section-content">
             <h1 class="section-heading">Get SimpleTrade and Start Trading</h1>
             <div class="plans">
@@ -619,7 +588,7 @@
     </section>
 
     <!-- MONEY-BACK -->
-    <section class="section" id="money-back">
+    <section class="section section-border-bottom" id="money-back">
         <div class="section-content">
             <div class="section-head">
                 <div class="shield-frame">
@@ -648,7 +617,7 @@
     </section>
 
     <!-- FEATURES -->
-    <section class="section">
+    <section class="section section-border-bottom">
         <div class="section-content">
             <h2 class="section-heading">Why Choose SimpleTrade</h2>
             <div class="features-grid">
@@ -729,7 +698,7 @@
     </section>
 
     <!-- EXCHANGES -->
-    <section class="section" id="exchanges">
+    <section class="section section-border-bottom" id="exchanges">
         <div class="section-content">
             <div class="section-head">
                 <h2 class="section-heading">Works With All Exchanges</h2>
@@ -955,62 +924,16 @@
     </section>
 
 
-    <!-- FOOTER -->
-    <section class="footer">
-        <div class="footer-content">
-            <img src="svg/logo.svg">
-            <div class="footer-links">
-                <div class="footer-links-column">
-                    <a class="footer-link">Pricing</a>
-                    <a class="footer-link">Contact</a>
-                    <a class="footer-link">Testimonials</a>
-                    <a class="footer-link">FAQ</a>
-                </div>
-                <div class="footer-links-column">
-                    <a class="footer-link">Privacy Policy</a>
-                    <a class="footer-link">Terms of Service</a>
-                    <a class="footer-link">Refunds</a>
-                    <a class="footer-link">Get SimpleTrade</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- DISCLAIMER -->
-    <section class="disclaimer">
-        <p class="disclaimer-text">Trading & investing are risky and many will lose money in connection with trading and
-            investing activities. All
-            content on this site is not intended to, and should not be, construed as financial advice. Decisions to buy,
-            sell, hold or trade in securities, commodities and other investments involve risk and are best made based on
-            the
-            advice of qualified financial professionals. Past performance does not guarantee future results.
-
-            Hypothetical or Simulated performance results have certain limitations. Unlike an actual performance record,
-            simulated results do not represent actual trading.</p>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
     <script src="js/card-carousel.js"></script>
-    <script src="js/nav.js"></script>
+    <script src="js/slideshow.js"></script>
     <script src="js/faq.js"></script>
     <script src="js/reviews.js"></script>
     <script src="js/active-traders.js"></script>
-
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
 </body>
 
 </html>
